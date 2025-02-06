@@ -1,0 +1,37 @@
+{
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "james-yu.latex-workshop",
+        "nickfode.latex-formatter",
+        "ms-azuretools.vscode-docker",
+        "meezilla.json",
+        "valentjn.vscode-ltex",
+        "ParthR2031.colorful-comments",
+        "PKief.material-icon-theme",
+        "IBM.output-colorizer",
+        "MichaelCurrin.auto-commit-msg",
+        "volkerdobler.insertnums",
+        "ryu1kn.partial-diff",
+        "Gruntfuggly.todo-tree",
+        "eamodio.gitlens",
+        "ms-vscode.makefile-tools",
+        "James-Yu.latex-workshop"
+      ]
+    }
+  },
+  "mounts": [
+    // "source=${env:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached", // Windows only to use Git credentials
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly",
+    "type=bind,source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig",
+    "source=${localWorkspaceFolder}/.devcontainer/misc/.zshrc,target=/home/vscode/.zshrc,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.devcontainer/misc/.zshenv,target=/home/vscode/.zshenv,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.devcontainer/misc/.p10k.zsh,target=/home/vscode/.p10k.zsh,type=bind,consistency=cached"
+  ],
+  // "postCreateCommand": ""
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+}
