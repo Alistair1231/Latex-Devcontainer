@@ -1,3 +1,5 @@
+This is highly customized and includes e.g. my zshrc. If you don't like my defaults, I recommend forking.
+
 # How to use
 
 ## "Install"
