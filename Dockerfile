@@ -26,7 +26,7 @@ RUN groupadd --gid $USER_GID $USERNAME && \
 RUN curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/devmatteini/dra/refs/heads/main/install.sh | bash -s -- --to /usr/bin/dra
 
 # tex-fmt install from latest github release
-RUN dra download --install -a WGUNDERWOOD/tex-fmt
+RUN dra download --install -a WGUNDERWOOD/tex-fmt -o /usr/bin/tex-fmt
 
 # "install" latexrun
 RUN ln -s ./misc/latexrun /usr/bin/latexrun
