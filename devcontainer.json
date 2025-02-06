@@ -32,5 +32,6 @@
     "source=${localWorkspaceFolder}/.devcontainer/misc/.p10k.zsh,target=/home/vscode/.p10k.zsh,type=bind,consistency=cached"
   ],
   // "postCreateCommand": ""
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "workspaceFolder": "/workspace"
 }
