@@ -25,7 +25,6 @@
     }
   },
   "mounts": [
-    // "source=${env:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached", // Windows only to use Git credentials
     "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly",
     "type=bind,source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig",
     "source=${localWorkspaceFolder}/.devcontainer/misc/.zshrc,target=/home/vscode/.zshrc,type=bind,consistency=cached",
