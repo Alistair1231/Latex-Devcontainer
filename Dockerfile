@@ -41,5 +41,14 @@ ENV PATH="/home/${USERNAME}/.local/bin:${PATH}"
 # pygments
 RUN uv tool install pygments
 
+# install zsh config
+COPY misc/.zshrc misc/.zshenv misc/.p10k.zsh /home/$USERNAME/
 # set zsh as default shell
 RUN sudo chsh -s $(which zsh) $USERNAME
+
+# install brew, zoxide, croc, bat and eza
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \  
+  brew install zoxide croc bat eza
+
+ENTRYPOINT [ "/usr/bin/zsh" ]

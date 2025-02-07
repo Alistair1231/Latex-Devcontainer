@@ -29,7 +29,9 @@ zstyle ':z4h:' term-shell-integration 'yes'
 zstyle ':z4h:autosuggestions' forward-char 'accept'
 
 # Recursively traverse directories when TAB-completing files.
-zstyle ':z4h:fzf-complete' recurse-dirs 'no'
+zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
+zstyle ':z4h:fzf-complete' fzf-bindings tab:repeat
+
 
 # Enable direnv to automatically source .envrc files.
 zstyle ':z4h:direnv'         enable 'no'
@@ -214,6 +216,14 @@ fi
 
 export ___X_CMD_ADVISE_DISABLE=1
 x(){
+    if [[ ! -f "$HOME/.x-cmd.root/X" ]]; then
+        # install x-cmd
+        eval "$(curl https://get.x-cmd.com)"
+        # undo changes to ~/.zshrc
+        x boot clear
+        # reload zsh
+        zsh
+    fi
     if [[ -f "$HOME/.x-cmd.root/X" ]]; then
         unfunction "$0"
         . "$HOME/.x-cmd.root/X"
@@ -300,9 +310,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-transfer_url="https://al:Correct-Rockslide6-Depletion@tsh.qaaq.cc"
-transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip";(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "$transfer_url/$file_name"|tee /dev/null;else cat "$file"|curl --progress-bar --upload-file "-" "$transfer_url/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "$transfer_url/$file_name"|tee /dev/null;fi;}
-alias tsh=transfer
-
 # hide % at end of print
 export PROMPT_EOL_MARK=''
+

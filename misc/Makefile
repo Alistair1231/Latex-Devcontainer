@@ -29,7 +29,7 @@ OTHER_FILES = $(wildcard macros/*.sty) glossary.tex
 LATEXRUN = latexrun
 # latexrun --latex-cmd lualatex --bibtex-cmd biber --latex-args="-shell-escape -synctex=1" --verbose-cmds main.tex 
 
-$(MAIN).pdf: $(MAIN).tex $(FIGURES) $(SECTIONS) $(BIB_FILE) $(OTHER_FILES)
+$(MAIN).pdf: $(MAIN).tex $(FIGURES) $(PREAMBLE) $(SECTIONS) $(BIB_FILE) $(OTHER_FILES)
 	clear
 	$(LATEXRUN) $(MAIN).tex
 
@@ -42,7 +42,7 @@ all: $(MAIN).pdf
 
 .PHONY: watch
 watch:
-	while inotifywait -e close_write $(MAIN).tex $(FIGURES) $(SECTIONS) $(BIB_FILE) $(OTHER_FILES); do \
+	while inotifywait -e close_write $(MAIN).tex $(PREAMBLE) $(FIGURES) $(SECTIONS) $(BIB_FILE) $(OTHER_FILES); do \
 		make --silent; \
 	done
 
