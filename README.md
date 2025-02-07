@@ -4,8 +4,8 @@
    - [Install](#install)
    - [File/Folder Structure](#filefolder-structure)
    - [Makefile](#makefile)
-   - [Set Up](#set-up)
-   - [Overrides](#overrides)
+      - [Set Up](#set-up)
+      - [Overrides](#overrides)
 
 # Latex-Devcontainer
 
