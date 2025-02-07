@@ -14,7 +14,7 @@ RUN apt-get update && \
   inkscape \
   # for make watch
   inotify-tools \
-  neovim zsh tmux eza zoxide && \
+  zsh tmux && \
   rm -rf /var/lib/apt/lists/* 
 
 RUN groupadd --gid $USER_GID $USERNAME && \
@@ -38,7 +38,7 @@ USER $USERNAME
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/home/${USERNAME}/.local/bin:${PATH}"
 
-# pygments
+# pygments for \usepackage{minted} source code highlighting in Latex
 RUN uv tool install pygments
 
 # install zsh config
