@@ -45,9 +45,6 @@ $(MAIN).pdf: $(MAIN).tex $(FIGURES) $(PREAMBLE) $(SECTIONS) $(BIB_FILE) $(OTHER_
 .PHONY: clean
 clean:
 	$(LATEXRUN) --clean-all
-	
-.PHONY: all
-all: $(MAIN).pdf 
 
 .PHONY: watch
 watch:
