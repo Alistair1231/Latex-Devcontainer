@@ -58,3 +58,13 @@ I also added `make sub` to run on a single figure file:
 ```bash
 make sub MAIN=figure-file-without-extension WHERE=figures/tikz/example
 ```
+
+## .env
+alternatively, you can use a `.env` file to override the defaults, e.g.
+```bash
+cat <<EOF > .env
+MAIN=my-document
+BIB_FILE=my-document.bib
+EOF
+```
+the Makefile will source this file if it exists and override the defaults. So afterwards `make` will be equivalent to `make MAIN=my-document BIB_FILE=my-document.bib`.

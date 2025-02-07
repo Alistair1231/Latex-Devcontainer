@@ -1,3 +1,4 @@
+#!make
 # https://gist.github.com/alexjohnj/35fa1617ed6a21fe11f126fb906d6001
 # This is a generic Makefile that can be used to compile somewhat complicated
 # LaTeX documents. It assumes a directory structure like this
@@ -12,6 +13,7 @@
 # Makefile's configured for latexrun but it should be easy to switch to
 # something else by customising the variables $(LATEXRUN) and $(LATEXRUN_OPTS).
 #
+
 MAIN = main
 PREAMBLE = frontmatter.tex
 # No references? Just assign this to nothing.
@@ -28,6 +30,13 @@ OTHER_FILES = $(wildcard macros/*.sty) glossary.tex
 
 LATEXRUN = latexrun
 # latexrun --latex-cmd lualatex --bibtex-cmd biber --latex-args="-shell-escape -synctex=1" --verbose-cmds main.tex 
+
+# if .env file exists, include it and override the defaults
+# example would be a file .env with content `MAIN=my-document` to override the default `MAIN=main`
+ifneq ("$(wildcard .env)","")
+	include .env
+	export
+endif
 
 $(MAIN).pdf: $(MAIN).tex $(FIGURES) $(PREAMBLE) $(SECTIONS) $(BIB_FILE) $(OTHER_FILES)
 	clear
