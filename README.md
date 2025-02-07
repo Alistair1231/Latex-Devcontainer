@@ -75,6 +75,7 @@ make sub MAIN=figure-file-without-extension WHERE=figures/tikz/example
 ## .env
 alternatively, you can use a `.env` file to override the defaults, e.g.
 ```bash
+# create a file `.env` with two values: MAIN and BIB_FILE 
 cat <<EOF > .env
 MAIN=my-document
 BIB_FILE=my-document.bib
