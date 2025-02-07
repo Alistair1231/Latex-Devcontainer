@@ -67,8 +67,6 @@ the main `make` commands are:
 - `make watch` to watch for changes and auto-recompile
 - `make sub` to one-off compile a sub-file like a standalone tikz diagram, this requires to specify a relative path with `WHERE`, see below
 
-Once inside of the dev container, make a relative symlink of the Makefile into the target directory (where your main.tex lies):
-
 When not using overrides, but changing `main.tex` to what the PDF should be called you can also run make directly like this and append all overrides.
 
 ```bash
@@ -88,6 +86,8 @@ make sub MAIN=figure-file-without-extension WHERE=figures/tikz/example
 ```
 
 #### Set up
+
+Once inside of the dev container, make a relative symlink of the Makefile into the target directory (where your main.tex lies):
 
 ```bash
 cd /workspace
