@@ -17,6 +17,7 @@ RUN apt-get update && \
   zsh tmux && \
   rm -rf /var/lib/apt/lists/* 
 
+# create non-root user and add to sudo without password
 RUN groupadd --gid $USER_GID $USERNAME && \
   useradd --uid $USER_UID --gid $USER_GID -m $USERNAME && \  
   echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
@@ -34,7 +35,7 @@ RUN curl -Lo /usr/bin/latexrun https://github.com/Alistair1231/Latex-Devcontaine
 
 USER $USERNAME
 
-# uv
+# install uv as python manager
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/home/${USERNAME}/.local/bin:${PATH}"
 
