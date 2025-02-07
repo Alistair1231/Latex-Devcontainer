@@ -1,7 +1,7 @@
 # Latex-Devcontainer
 This dev container is a one-stop-shop to how I personally prefer to work with Latex. It uses a slightly modified version of [aclements/latexrun](https://github.com/aclements/latexrun) and uses biber and lualatex by default. It also sets up zsh, with my personal zsh config based on [romkatv/zsh4humans](https://github.com/romkatv/zsh4humans). It installs both toolchains and my frequently used cli tools. It also includes a Makefile (based on [gist/alexjohnj/Makefile](https://gist.github.com/alexjohnj/35fa1617ed6a21fe11f126fb906d6001)) with a watch feature that recompiles on save and optional .env-file overrides for default values. To use this add it into your latex documents workspace as .devcontainer, see below on how.  
 
-For a full list of what this does, just look at the files, it's not a lot of code and the Dockerfile has comments, so it should be easy to understand.
+For a full list of what this does, just look at the files, it's not a lot of code and the Dockerfile has comments, so it should be easy to understand. I may clean up the settings and extensions at some point, since I switched from using purely [Latex Workshop](https://github.com/James-Yu/LaTeX-Workshop) to a mixed approach with make. The addons should still mostly be what I want, but the settings.json contains a lot of unused configs now.
 
 Fair warning, this is a highly customized environment. You may ask for changes or open pull requests, but chances are that I will want to keep it how I like it. Feel free to fork to your hearts content and customize however.
 
